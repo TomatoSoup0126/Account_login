@@ -20,12 +20,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
+  let userInput = req.body
   let status = loginCheck(req.body)
+
   console.log(status)
-  if (status === 'wrongAccount') {
-    res.render('index', { status: status })
-  } else if (status === 'wrongPassword') {
-    res.render('index', { status: status })
+  if (status === '帳號錯誤') {
+    res.render('index', { wrongAccount: status, userInput: userInput })
+  } else if (status === '密碼錯誤') {
+    res.render('index', { wrongPassword: status, userInput: userInput })
   } else {
     res.render('welcome', { status: status })
   }

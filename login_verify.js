@@ -1,6 +1,5 @@
 let matchUser = {}
 
-
 // input = {
 //   account: 'captain@hotmail.com',
 //   password: 'icandothisallday'
@@ -39,7 +38,6 @@ function findUser(input) {
   matchUser = users.find(function (user, index, array) {
     return user.email === input.account
   })
-  console.log(matchUser)
 }
 
 function checkUser() {
@@ -59,14 +57,13 @@ function checkPassword(input) {
 }
 
 function loginCheck(input) {
-  let
-    status = ''
+  let status = ''
   findUser(input)
   if (!checkUser()) {
-    status = 'wrongAccount'
+    status = '帳號錯誤'
   } else {
     if (!checkPassword(input)) {
-      status = 'wrongPassword'
+      status = '密碼錯誤'
     } else {
       status = `Wellcome back, ${matchUser.firstName}!`
     }
